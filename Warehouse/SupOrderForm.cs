@@ -7,23 +7,21 @@ namespace Warehouse
         public SupOrderForm()
         {
             InitializeComponent();
-            commodityTA.Fill(dataSet.commodity);
             supplierTA.Fill(dataSet.supplier);
-            sup_orderTA.Fill(dataSet.sup_order);
+            commodityTA.Fill(dataSet.commodity);
+            consignmentTA.Fill(dataSet.consignment);
         }
 
         private void AddButton_Click(object sender, System.EventArgs e)
         {
-            var row = dataSet.sup_order.Newsup_orderRow();
+            DataSet.consignmentRow row = dataSet.consignment.NewconsignmentRow();
             row.sup_id = (long)Supplier.SelectedValue;
             row.com_id = (long)Commodity.SelectedValue;
             row.count = (long)ComCount.Value;
-            dataSet.sup_order.Rows.Add(row);
-            for (int i = 0; i < dataSet.commodity.Rows.Count; i++)
-                if (dataSet.commodity.Rows[i][0].Equals(row.com_id))
-                    dataSet.commodity.Rows[i][2] = (long)dataSet.commodity.Rows[i][2] + row.count;
-            commodityTA.Update(dataSet.commodity);
-            sup_orderTA.Update(dataSet.sup_order);
+            row.price = (double)Price.Value;
+            row.con_date = Date.Value;
+            dataSet.consignment.Rows.Add(row);
+            consignmentTA.Update(dataSet.consignment);
             Close();
         }
     }

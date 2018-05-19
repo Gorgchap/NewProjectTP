@@ -30,9 +30,9 @@ namespace Warehouse {
         
         private commodityDataTable tablecommodity;
         
-        private personDataTable tableperson;
+        private consignmentDataTable tableconsignment;
         
-        private sup_orderDataTable tablesup_order;
+        private personDataTable tableperson;
         
         private supplierDataTable tablesupplier;
         
@@ -73,11 +73,11 @@ namespace Warehouse {
                 if ((ds.Tables["commodity"] != null)) {
                     base.Tables.Add(new commodityDataTable(ds.Tables["commodity"]));
                 }
+                if ((ds.Tables["consignment"] != null)) {
+                    base.Tables.Add(new consignmentDataTable(ds.Tables["consignment"]));
+                }
                 if ((ds.Tables["person"] != null)) {
                     base.Tables.Add(new personDataTable(ds.Tables["person"]));
-                }
-                if ((ds.Tables["sup_order"] != null)) {
-                    base.Tables.Add(new sup_orderDataTable(ds.Tables["sup_order"]));
                 }
                 if ((ds.Tables["supplier"] != null)) {
                     base.Tables.Add(new supplierDataTable(ds.Tables["supplier"]));
@@ -134,9 +134,9 @@ namespace Warehouse {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public personDataTable person {
+        public consignmentDataTable consignment {
             get {
-                return this.tableperson;
+                return this.tableconsignment;
             }
         }
         
@@ -144,9 +144,9 @@ namespace Warehouse {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sup_orderDataTable sup_order {
+        public personDataTable person {
             get {
-                return this.tablesup_order;
+                return this.tableperson;
             }
         }
         
@@ -236,11 +236,11 @@ namespace Warehouse {
                 if ((ds.Tables["commodity"] != null)) {
                     base.Tables.Add(new commodityDataTable(ds.Tables["commodity"]));
                 }
+                if ((ds.Tables["consignment"] != null)) {
+                    base.Tables.Add(new consignmentDataTable(ds.Tables["consignment"]));
+                }
                 if ((ds.Tables["person"] != null)) {
                     base.Tables.Add(new personDataTable(ds.Tables["person"]));
-                }
-                if ((ds.Tables["sup_order"] != null)) {
-                    base.Tables.Add(new sup_orderDataTable(ds.Tables["sup_order"]));
                 }
                 if ((ds.Tables["supplier"] != null)) {
                     base.Tables.Add(new supplierDataTable(ds.Tables["supplier"]));
@@ -296,16 +296,16 @@ namespace Warehouse {
                     this.tablecommodity.InitVars();
                 }
             }
+            this.tableconsignment = ((consignmentDataTable)(base.Tables["consignment"]));
+            if ((initTable == true)) {
+                if ((this.tableconsignment != null)) {
+                    this.tableconsignment.InitVars();
+                }
+            }
             this.tableperson = ((personDataTable)(base.Tables["person"]));
             if ((initTable == true)) {
                 if ((this.tableperson != null)) {
                     this.tableperson.InitVars();
-                }
-            }
-            this.tablesup_order = ((sup_orderDataTable)(base.Tables["sup_order"]));
-            if ((initTable == true)) {
-                if ((this.tablesup_order != null)) {
-                    this.tablesup_order.InitVars();
                 }
             }
             this.tablesupplier = ((supplierDataTable)(base.Tables["supplier"]));
@@ -330,10 +330,10 @@ namespace Warehouse {
             base.Tables.Add(this.tableclient_order);
             this.tablecommodity = new commodityDataTable();
             base.Tables.Add(this.tablecommodity);
+            this.tableconsignment = new consignmentDataTable();
+            base.Tables.Add(this.tableconsignment);
             this.tableperson = new personDataTable();
             base.Tables.Add(this.tableperson);
-            this.tablesup_order = new sup_orderDataTable();
-            base.Tables.Add(this.tablesup_order);
             this.tablesupplier = new supplierDataTable();
             base.Tables.Add(this.tablesupplier);
         }
@@ -358,13 +358,13 @@ namespace Warehouse {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeperson() {
+        private bool ShouldSerializeconsignment() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializesup_order() {
+        private bool ShouldSerializeperson() {
             return false;
         }
         
@@ -439,10 +439,10 @@ namespace Warehouse {
         public delegate void commodityRowChangeEventHandler(object sender, commodityRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void personRowChangeEventHandler(object sender, personRowChangeEvent e);
+        public delegate void consignmentRowChangeEventHandler(object sender, consignmentRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void sup_orderRowChangeEventHandler(object sender, sup_orderRowChangeEvent e);
+        public delegate void personRowChangeEventHandler(object sender, personRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void supplierRowChangeEventHandler(object sender, supplierRowChangeEvent e);
@@ -459,6 +459,8 @@ namespace Warehouse {
             private global::System.Data.DataColumn columnname;
             
             private global::System.Data.DataColumn columnphone;
+            
+            private global::System.Data.DataColumn columnaddress;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -519,6 +521,14 @@ namespace Warehouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn addressColumn {
+                get {
+                    return this.columnaddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -554,12 +564,13 @@ namespace Warehouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public clientRow AddclientRow(string name, string phone) {
+            public clientRow AddclientRow(string name, string phone, string address) {
                 clientRow rowclientRow = ((clientRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
-                        phone};
+                        phone,
+                        address};
                 rowclientRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowclientRow);
                 return rowclientRow;
@@ -592,6 +603,7 @@ namespace Warehouse {
                 this.columnid = base.Columns["id"];
                 this.columnname = base.Columns["name"];
                 this.columnphone = base.Columns["phone"];
+                this.columnaddress = base.Columns["address"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -603,6 +615,8 @@ namespace Warehouse {
                 base.Columns.Add(this.columnname);
                 this.columnphone = new global::System.Data.DataColumn("phone", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnphone);
+                this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaddress);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -612,7 +626,9 @@ namespace Warehouse {
                 this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 255;
                 this.columnphone.AllowDBNull = false;
-                this.columnphone.MaxLength = 30;
+                this.columnphone.MaxLength = 60;
+                this.columnaddress.AllowDBNull = false;
+                this.columnaddress.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -752,6 +768,10 @@ namespace Warehouse {
             
             private global::System.Data.DataColumn columncom_id;
             
+            private global::System.Data.DataColumn columnprice;
+            
+            private global::System.Data.DataColumn columnorder_date;
+            
             private global::System.Data.DataColumn columncount;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -813,6 +833,22 @@ namespace Warehouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn priceColumn {
+                get {
+                    return this.columnprice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn order_dateColumn {
+                get {
+                    return this.columnorder_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn countColumn {
                 get {
                     return this.columncount;
@@ -856,12 +892,14 @@ namespace Warehouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public client_orderRow Addclient_orderRow(long client_id, long com_id, long count) {
+            public client_orderRow Addclient_orderRow(long client_id, long com_id, double price, System.DateTime order_date, long count) {
                 client_orderRow rowclient_orderRow = ((client_orderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         client_id,
                         com_id,
+                        price,
+                        order_date,
                         count};
                 rowclient_orderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowclient_orderRow);
@@ -895,6 +933,8 @@ namespace Warehouse {
                 this.columnid = base.Columns["id"];
                 this.columnclient_id = base.Columns["client_id"];
                 this.columncom_id = base.Columns["com_id"];
+                this.columnprice = base.Columns["price"];
+                this.columnorder_date = base.Columns["order_date"];
                 this.columncount = base.Columns["count"];
             }
             
@@ -907,6 +947,10 @@ namespace Warehouse {
                 base.Columns.Add(this.columnclient_id);
                 this.columncom_id = new global::System.Data.DataColumn("com_id", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncom_id);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice);
+                this.columnorder_date = new global::System.Data.DataColumn("order_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnorder_date);
                 this.columncount = new global::System.Data.DataColumn("count", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -917,6 +961,7 @@ namespace Warehouse {
                 this.columnid.Unique = true;
                 this.columnclient_id.AllowDBNull = false;
                 this.columncom_id.AllowDBNull = false;
+                this.columnorder_date.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1054,8 +1099,6 @@ namespace Warehouse {
             
             private global::System.Data.DataColumn columnname;
             
-            private global::System.Data.DataColumn columncount;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public commodityDataTable() {
@@ -1107,14 +1150,6 @@ namespace Warehouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn countColumn {
-                get {
-                    return this.columncount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1150,12 +1185,11 @@ namespace Warehouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public commodityRow AddcommodityRow(string name, long count) {
+            public commodityRow AddcommodityRow(string name) {
                 commodityRow rowcommodityRow = ((commodityRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        name,
-                        count};
+                        name};
                 rowcommodityRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcommodityRow);
                 return rowcommodityRow;
@@ -1187,7 +1221,6 @@ namespace Warehouse {
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
                 this.columnname = base.Columns["name"];
-                this.columncount = base.Columns["count"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1197,8 +1230,6 @@ namespace Warehouse {
                 base.Columns.Add(this.columnid);
                 this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
-                this.columncount = new global::System.Data.DataColumn("count", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -1293,6 +1324,339 @@ namespace Warehouse {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "commodityDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class consignmentDataTable : global::System.Data.TypedTableBase<consignmentRow> {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columnsup_id;
+            
+            private global::System.Data.DataColumn columncom_id;
+            
+            private global::System.Data.DataColumn columnprice;
+            
+            private global::System.Data.DataColumn columncon_date;
+            
+            private global::System.Data.DataColumn columncount;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public consignmentDataTable() {
+                this.TableName = "consignment";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal consignmentDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected consignmentDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn sup_idColumn {
+                get {
+                    return this.columnsup_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn com_idColumn {
+                get {
+                    return this.columncom_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn priceColumn {
+                get {
+                    return this.columnprice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn con_dateColumn {
+                get {
+                    return this.columncon_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn countColumn {
+                get {
+                    return this.columncount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public consignmentRow this[int index] {
+                get {
+                    return ((consignmentRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event consignmentRowChangeEventHandler consignmentRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event consignmentRowChangeEventHandler consignmentRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event consignmentRowChangeEventHandler consignmentRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event consignmentRowChangeEventHandler consignmentRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddconsignmentRow(consignmentRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public consignmentRow AddconsignmentRow(long sup_id, long com_id, double price, System.DateTime con_date, long count) {
+                consignmentRow rowconsignmentRow = ((consignmentRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        sup_id,
+                        com_id,
+                        price,
+                        con_date,
+                        count};
+                rowconsignmentRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowconsignmentRow);
+                return rowconsignmentRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public consignmentRow FindByid(long id) {
+                return ((consignmentRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                consignmentDataTable cln = ((consignmentDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new consignmentDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columnsup_id = base.Columns["sup_id"];
+                this.columncom_id = base.Columns["com_id"];
+                this.columnprice = base.Columns["price"];
+                this.columncon_date = base.Columns["con_date"];
+                this.columncount = base.Columns["count"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columnsup_id = new global::System.Data.DataColumn("sup_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsup_id);
+                this.columncom_id = new global::System.Data.DataColumn("com_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncom_id);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice);
+                this.columncon_date = new global::System.Data.DataColumn("con_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncon_date);
+                this.columncount = new global::System.Data.DataColumn("count", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncount);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = 1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.Unique = true;
+                this.columnsup_id.AllowDBNull = false;
+                this.columncom_id.AllowDBNull = false;
+                this.columncon_date.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public consignmentRow NewconsignmentRow() {
+                return ((consignmentRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new consignmentRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(consignmentRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.consignmentRowChanged != null)) {
+                    this.consignmentRowChanged(this, new consignmentRowChangeEvent(((consignmentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.consignmentRowChanging != null)) {
+                    this.consignmentRowChanging(this, new consignmentRowChangeEvent(((consignmentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.consignmentRowDeleted != null)) {
+                    this.consignmentRowDeleted(this, new consignmentRowChangeEvent(((consignmentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.consignmentRowDeleting != null)) {
+                    this.consignmentRowDeleting(this, new consignmentRowChangeEvent(((consignmentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveconsignmentRow(consignmentRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet ds = new DataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "consignmentDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1497,7 +1861,7 @@ namespace Warehouse {
                 this.columnpassword.AllowDBNull = false;
                 this.columnpassword.MaxLength = 255;
                 this.columnstat.AllowDBNull = false;
-                this.columnstat.MaxLength = 127;
+                this.columnstat.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1584,310 +1948,6 @@ namespace Warehouse {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "personDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sup_orderDataTable : global::System.Data.TypedTableBase<sup_orderRow> {
-            
-            private global::System.Data.DataColumn columnid;
-            
-            private global::System.Data.DataColumn columnsup_id;
-            
-            private global::System.Data.DataColumn columncom_id;
-            
-            private global::System.Data.DataColumn columncount;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sup_orderDataTable() {
-                this.TableName = "sup_order";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal sup_orderDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected sup_orderDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn idColumn {
-                get {
-                    return this.columnid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn sup_idColumn {
-                get {
-                    return this.columnsup_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn com_idColumn {
-                get {
-                    return this.columncom_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn countColumn {
-                get {
-                    return this.columncount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sup_orderRow this[int index] {
-                get {
-                    return ((sup_orderRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event sup_orderRowChangeEventHandler sup_orderRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event sup_orderRowChangeEventHandler sup_orderRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event sup_orderRowChangeEventHandler sup_orderRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event sup_orderRowChangeEventHandler sup_orderRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Addsup_orderRow(sup_orderRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sup_orderRow Addsup_orderRow(long sup_id, long com_id, long count) {
-                sup_orderRow rowsup_orderRow = ((sup_orderRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        sup_id,
-                        com_id,
-                        count};
-                rowsup_orderRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsup_orderRow);
-                return rowsup_orderRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sup_orderRow FindByid(long id) {
-                return ((sup_orderRow)(this.Rows.Find(new object[] {
-                            id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                sup_orderDataTable cln = ((sup_orderDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new sup_orderDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnid = base.Columns["id"];
-                this.columnsup_id = base.Columns["sup_id"];
-                this.columncom_id = base.Columns["com_id"];
-                this.columncount = base.Columns["count"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid);
-                this.columnsup_id = new global::System.Data.DataColumn("sup_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsup_id);
-                this.columncom_id = new global::System.Data.DataColumn("com_id", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncom_id);
-                this.columncount = new global::System.Data.DataColumn("count", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncount);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid}, true));
-                this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = 1;
-                this.columnid.AllowDBNull = false;
-                this.columnid.Unique = true;
-                this.columnsup_id.AllowDBNull = false;
-                this.columncom_id.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sup_orderRow Newsup_orderRow() {
-                return ((sup_orderRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sup_orderRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(sup_orderRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.sup_orderRowChanged != null)) {
-                    this.sup_orderRowChanged(this, new sup_orderRowChangeEvent(((sup_orderRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.sup_orderRowChanging != null)) {
-                    this.sup_orderRowChanging(this, new sup_orderRowChangeEvent(((sup_orderRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.sup_orderRowDeleted != null)) {
-                    this.sup_orderRowDeleted(this, new sup_orderRowChangeEvent(((sup_orderRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.sup_orderRowDeleting != null)) {
-                    this.sup_orderRowDeleting(this, new sup_orderRowChangeEvent(((sup_orderRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Removesup_orderRow(sup_orderRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet ds = new DataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sup_orderDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2107,7 +2167,7 @@ namespace Warehouse {
                 this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 255;
                 this.columnphone.AllowDBNull = false;
-                this.columnphone.MaxLength = 30;
+                this.columnphone.MaxLength = 60;
                 this.columnaddress.AllowDBNull = false;
                 this.columnaddress.MaxLength = 255;
             }
@@ -2282,6 +2342,17 @@ namespace Warehouse {
                     this[this.tableclient.phoneColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string address {
+                get {
+                    return ((string)(this[this.tableclient.addressColumn]));
+                }
+                set {
+                    this[this.tableclient.addressColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -2333,6 +2404,33 @@ namespace Warehouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double price {
+                get {
+                    try {
+                        return ((double)(this[this.tableclient_order.priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'price\' в таблице \'client_order\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableclient_order.priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime order_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableclient_order.order_dateColumn]));
+                }
+                set {
+                    this[this.tableclient_order.order_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public long count {
                 get {
                     try {
@@ -2345,6 +2443,18 @@ namespace Warehouse {
                 set {
                     this[this.tableclient_order.countColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IspriceNull() {
+                return this.IsNull(this.tableclient_order.priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetpriceNull() {
+                this[this.tableclient_order.priceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2395,33 +2505,120 @@ namespace Warehouse {
                     this[this.tablecommodity.nameColumn] = value;
                 }
             }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class consignmentRow : global::System.Data.DataRow {
+            
+            private consignmentDataTable tableconsignment;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal consignmentRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableconsignment = ((consignmentDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long id {
+                get {
+                    return ((long)(this[this.tableconsignment.idColumn]));
+                }
+                set {
+                    this[this.tableconsignment.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long sup_id {
+                get {
+                    return ((long)(this[this.tableconsignment.sup_idColumn]));
+                }
+                set {
+                    this[this.tableconsignment.sup_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public long com_id {
+                get {
+                    return ((long)(this[this.tableconsignment.com_idColumn]));
+                }
+                set {
+                    this[this.tableconsignment.com_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double price {
+                get {
+                    try {
+                        return ((double)(this[this.tableconsignment.priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'price\' в таблице \'consignment\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableconsignment.priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime con_date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableconsignment.con_dateColumn]));
+                }
+                set {
+                    this[this.tableconsignment.con_dateColumn] = value;
+                }
+            }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public long count {
                 get {
                     try {
-                        return ((long)(this[this.tablecommodity.countColumn]));
+                        return ((long)(this[this.tableconsignment.countColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'count\' в таблице \'commodity\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'count\' в таблице \'consignment\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablecommodity.countColumn] = value;
+                    this[this.tableconsignment.countColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IspriceNull() {
+                return this.IsNull(this.tableconsignment.priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetpriceNull() {
+                this[this.tableconsignment.priceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IscountNull() {
-                return this.IsNull(this.tablecommodity.countColumn);
+                return this.IsNull(this.tableconsignment.countColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetcountNull() {
-                this[this.tablecommodity.countColumn] = global::System.Convert.DBNull;
+                this[this.tableconsignment.countColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2470,82 +2667,6 @@ namespace Warehouse {
                 set {
                     this[this.tableperson.statColumn] = value;
                 }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class sup_orderRow : global::System.Data.DataRow {
-            
-            private sup_orderDataTable tablesup_order;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal sup_orderRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablesup_order = ((sup_orderDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long id {
-                get {
-                    return ((long)(this[this.tablesup_order.idColumn]));
-                }
-                set {
-                    this[this.tablesup_order.idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long sup_id {
-                get {
-                    return ((long)(this[this.tablesup_order.sup_idColumn]));
-                }
-                set {
-                    this[this.tablesup_order.sup_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long com_id {
-                get {
-                    return ((long)(this[this.tablesup_order.com_idColumn]));
-                }
-                set {
-                    this[this.tablesup_order.com_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long count {
-                get {
-                    try {
-                        return ((long)(this[this.tablesup_order.countColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'count\' в таблице \'sup_order\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesup_order.countColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IscountNull() {
-                return this.IsNull(this.tablesup_order.countColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetcountNull() {
-                this[this.tablesup_order.countColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2714,22 +2835,22 @@ namespace Warehouse {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class personRowChangeEvent : global::System.EventArgs {
+        public class consignmentRowChangeEvent : global::System.EventArgs {
             
-            private personRow eventRow;
+            private consignmentRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public personRowChangeEvent(personRow row, global::System.Data.DataRowAction action) {
+            public consignmentRowChangeEvent(consignmentRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public personRow Row {
+            public consignmentRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2748,22 +2869,22 @@ namespace Warehouse {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class sup_orderRowChangeEvent : global::System.EventArgs {
+        public class personRowChangeEvent : global::System.EventArgs {
             
-            private sup_orderRow eventRow;
+            private personRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sup_orderRowChangeEvent(sup_orderRow row, global::System.Data.DataRowAction action) {
+            public personRowChangeEvent(personRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public sup_orderRow Row {
+            public personRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2940,40 +3061,46 @@ namespace Warehouse.DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("phone", "phone");
+            tableMapping.ColumnMappings.Add("address", "address");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"TP\".\"public\".\"client\" WHERE ((\"id\" = ?) AND (\"name\" = ?) AND (\"phone" +
-                "\" = ?))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"new\".\"public\".\"client\" WHERE ((\"id\" = ?) AND (\"name\" = ?) AND (\"phon" +
+                "e\" = ?) AND (\"address\" = ?))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_phone", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_phone", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_address", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"TP\".\"public\".\"client\" (\"id\", \"name\", \"phone\") VALUES (?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"new\".\"public\".\"client\" (\"id\", \"name\", \"phone\", \"address\") VALUES (?," +
+                " ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("phone", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("phone", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("address", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"TP\".\"public\".\"client\" SET \"id\" = ?, \"name\" = ?, \"phone\" = ? WHERE ((\"id\" " +
-                "= ?) AND (\"name\" = ?) AND (\"phone\" = ?))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE \"new\".\"public\".\"client\" SET \"id\" = ?, \"name\" = ?, \"phone\" = ?, \"address\" =" +
+                " ? WHERE ((\"id\" = ?) AND (\"name\" = ?) AND (\"phone\" = ?) AND (\"address\" = ?))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("phone", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("phone", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("address", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_phone", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_phone", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_address", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.TPConnectionString;
+            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.newConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2982,7 +3109,7 @@ namespace Warehouse.DataSetTableAdapters {
             this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"id\", \"name\", \"phone\" FROM \"public\".\"client\"";
+            this._commandCollection[0].CommandText = "SELECT \"id\", \"name\", \"phone\", \"address\" FROM \"public\".\"client\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3043,7 +3170,7 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, string Original_name, string Original_phone) {
+        public virtual int Delete(long Original_id, string Original_name, string Original_phone, string Original_address) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
@@ -3056,6 +3183,12 @@ namespace Warehouse.DataSetTableAdapters {
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_phone));
+            }
+            if ((Original_address == null)) {
+                throw new global::System.ArgumentNullException("Original_address");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_address));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3077,7 +3210,7 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long id, string name, string phone) {
+        public virtual int Insert(long id, string name, string phone, string address) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((long)(id));
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
@@ -3090,6 +3223,12 @@ namespace Warehouse.DataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(phone));
+            }
+            if ((address == null)) {
+                throw new global::System.ArgumentNullException("address");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(address));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3111,7 +3250,7 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long id, string name, string phone, long Original_id, string Original_name, string Original_phone) {
+        public virtual int Update(long id, string name, string phone, string address, long Original_id, string Original_name, string Original_phone, string Original_address) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(id));
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
@@ -3125,18 +3264,30 @@ namespace Warehouse.DataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(phone));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(Original_id));
+            if ((address == null)) {
+                throw new global::System.ArgumentNullException("address");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(address));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_name));
             }
             if ((Original_phone == null)) {
                 throw new global::System.ArgumentNullException("Original_phone");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_phone));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_phone));
+            }
+            if ((Original_address == null)) {
+                throw new global::System.ArgumentNullException("Original_address");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_address));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3158,8 +3309,8 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string phone, long Original_id, string Original_name, string Original_phone) {
-            return this.Update(Original_id, name, phone, Original_id, Original_name, Original_phone);
+        public virtual int Update(string name, string phone, string address, long Original_id, string Original_name, string Original_phone, string Original_address) {
+            return this.Update(Original_id, name, phone, address, Original_id, Original_name, Original_phone, Original_address);
         }
     }
     
@@ -3287,40 +3438,51 @@ namespace Warehouse.DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("client_id", "client_id");
             tableMapping.ColumnMappings.Add("com_id", "com_id");
+            tableMapping.ColumnMappings.Add("price", "price");
+            tableMapping.ColumnMappings.Add("order_date", "order_date");
             tableMapping.ColumnMappings.Add("count", "count");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"TP\".\"public\".\"client_order\" WHERE ((\"id\" = ?) AND (\"client_id\" = ?) " +
-                "AND (\"com_id\" = ?) AND ((? = 1 AND \"count\" IS NULL) OR (\"count\" = ?)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"new\".\"public\".\"client_order\" WHERE ((\"id\" = ?) AND (\"client_id\" = ?)" +
+                " AND (\"com_id\" = ?) AND ((? = 1 AND \"price\" IS NULL) OR (\"price\" = ?)) AND (\"ord" +
+                "er_date\" = ?) AND ((? = 1 AND \"count\" IS NULL) OR (\"count\" = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_price", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_price", global::System.Data.Odbc.OdbcType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_order_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "order_date", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"TP\".\"public\".\"client_order\" (\"id\", \"client_id\", \"com_id\", \"count\") V" +
-                "ALUES (?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"new\".\"public\".\"client_order\" (\"id\", \"client_id\", \"com_id\", \"price\", " +
+                "\"order_date\", \"count\") VALUES (?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("price", global::System.Data.Odbc.OdbcType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("order_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "order_date", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"TP\".\"public\".\"client_order\" SET \"id\" = ?, \"client_id\" = ?, \"com_id\" = ?, " +
-                "\"count\" = ? WHERE ((\"id\" = ?) AND (\"client_id\" = ?) AND (\"com_id\" = ?) AND ((? =" +
-                " 1 AND \"count\" IS NULL) OR (\"count\" = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""new"".""public"".""client_order"" SET ""id"" = ?, ""client_id"" = ?, ""com_id"" = ?, ""price"" = ?, ""order_date"" = ?, ""count"" = ? WHERE ((""id"" = ?) AND (""client_id"" = ?) AND (""com_id"" = ?) AND ((? = 1 AND ""price"" IS NULL) OR (""price"" = ?)) AND (""order_date"" = ?) AND ((? = 1 AND ""count"" IS NULL) OR (""count"" = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("client_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("price", global::System.Data.Odbc.OdbcType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("order_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "order_date", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_client_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "client_id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_price", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_price", global::System.Data.Odbc.OdbcType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_order_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "order_date", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, false, null));
         }
@@ -3329,7 +3491,7 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.TPConnectionString;
+            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.newConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3338,7 +3500,8 @@ namespace Warehouse.DataSetTableAdapters {
             this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"id\", \"client_id\", \"com_id\", \"count\" FROM \"public\".\"client_order\"";
+            this._commandCollection[0].CommandText = "SELECT \"id\", \"client_id\", \"com_id\", \"price\", \"order_date\", \"count\" FROM \"public\"." +
+                "\"client_order\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3399,12 +3562,15 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, long Original_client_id, long Original_com_id, long Original_count) {
+        public virtual int Delete(long Original_id, long Original_client_id, long Original_com_id, double Original_price, System.DateTime Original_order_date, long Original_count) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_client_id));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_com_id));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((long)(Original_count));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_price));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_order_date));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((long)(Original_count));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3425,11 +3591,13 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long id, long client_id, long com_id, long count) {
+        public virtual int Insert(long id, long client_id, long com_id, double price, System.DateTime order_date, long count) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((long)(id));
             this.Adapter.InsertCommand.Parameters[1].Value = ((long)(client_id));
             this.Adapter.InsertCommand.Parameters[2].Value = ((long)(com_id));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((long)(count));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((double)(price));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(order_date));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((long)(count));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3450,16 +3618,21 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long id, long client_id, long com_id, long count, long Original_id, long Original_client_id, long Original_com_id, long Original_count) {
+        public virtual int Update(long id, long client_id, long com_id, double price, System.DateTime order_date, long count, long Original_id, long Original_client_id, long Original_com_id, double Original_price, System.DateTime Original_order_date, long Original_count) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(id));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(client_id));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(com_id));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(count));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_id));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(Original_client_id));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_com_id));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((long)(Original_count));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(price));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(order_date));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(count));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(Original_client_id));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((long)(Original_com_id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(Original_price));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_order_date));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(Original_count));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3480,8 +3653,8 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long client_id, long com_id, long count, long Original_id, long Original_client_id, long Original_com_id, long Original_count) {
-            return this.Update(Original_id, client_id, com_id, count, Original_id, Original_client_id, Original_com_id, Original_count);
+        public virtual int Update(long client_id, long com_id, double price, System.DateTime order_date, long count, long Original_id, long Original_client_id, long Original_com_id, double Original_price, System.DateTime Original_order_date, long Original_count) {
+            return this.Update(Original_id, client_id, com_id, price, order_date, count, Original_id, Original_client_id, Original_com_id, Original_price, Original_order_date, Original_count);
         }
     }
     
@@ -3608,43 +3781,35 @@ namespace Warehouse.DataSetTableAdapters {
             tableMapping.DataSetTable = "commodity";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("count", "count");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"TP\".\"public\".\"commodity\" WHERE ((\"id\" = ?) AND (\"name\" = ?) AND ((? " +
-                "= 1 AND \"count\" IS NULL) OR (\"count\" = ?)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"new\".\"public\".\"commodity\" WHERE ((\"id\" = ?) AND (\"name\" = ?))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"TP\".\"public\".\"commodity\" (\"id\", \"name\", \"count\") VALUES (?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"new\".\"public\".\"commodity\" (\"id\", \"name\") VALUES (?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"TP\".\"public\".\"commodity\" SET \"id\" = ?, \"name\" = ?, \"count\" = ? WHERE ((\"i" +
-                "d\" = ?) AND (\"name\" = ?) AND ((? = 1 AND \"count\" IS NULL) OR (\"count\" = ?)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE \"new\".\"public\".\"commodity\" SET \"id\" = ?, \"name\" = ? WHERE ((\"id\" = ?) AND " +
+                "(\"name\" = ?))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.TPConnectionString;
+            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.newConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3653,7 +3818,7 @@ namespace Warehouse.DataSetTableAdapters {
             this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"id\", \"name\", \"count\" FROM \"public\".\"commodity\"";
+            this._commandCollection[0].CommandText = "SELECT \"id\", \"name\" FROM \"public\".\"commodity\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3714,7 +3879,7 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, string Original_name, long Original_count) {
+        public virtual int Delete(long Original_id, string Original_name) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
@@ -3722,8 +3887,6 @@ namespace Warehouse.DataSetTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_name));
             }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((long)(Original_count));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3744,7 +3907,7 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long id, string name, long count) {
+        public virtual int Insert(long id, string name) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((long)(id));
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
@@ -3752,7 +3915,6 @@ namespace Warehouse.DataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(name));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((long)(count));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3773,7 +3935,7 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long id, string name, long count, long Original_id, string Original_name, long Original_count) {
+        public virtual int Update(long id, string name, long Original_id, string Original_name) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(id));
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
@@ -3781,16 +3943,13 @@ namespace Warehouse.DataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(name));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(count));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_name));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_count));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3811,8 +3970,352 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, long count, long Original_id, string Original_name, long Original_count) {
-            return this.Update(Original_id, name, count, Original_id, Original_name, Original_count);
+        public virtual int Update(string name, long Original_id, string Original_name) {
+            return this.Update(Original_id, name, Original_id, Original_name);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class consignmentTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
+        
+        private global::System.Data.Odbc.OdbcConnection _connection;
+        
+        private global::System.Data.Odbc.OdbcTransaction _transaction;
+        
+        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public consignmentTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.Odbc.OdbcConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.Odbc.OdbcTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "consignment";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("sup_id", "sup_id");
+            tableMapping.ColumnMappings.Add("com_id", "com_id");
+            tableMapping.ColumnMappings.Add("price", "price");
+            tableMapping.ColumnMappings.Add("con_date", "con_date");
+            tableMapping.ColumnMappings.Add("count", "count");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"new\".\"public\".\"consignment\" WHERE ((\"id\" = ?) AND (\"sup_id\" = ?) AND" +
+                " (\"com_id\" = ?) AND ((? = 1 AND \"price\" IS NULL) OR (\"price\" = ?)) AND (\"con_dat" +
+                "e\" = ?) AND ((? = 1 AND \"count\" IS NULL) OR (\"count\" = ?)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_sup_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sup_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_price", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_price", global::System.Data.Odbc.OdbcType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_con_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "con_date", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"new\".\"public\".\"consignment\" (\"id\", \"sup_id\", \"com_id\", \"price\", \"con" +
+                "_date\", \"count\") VALUES (?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sup_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sup_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("price", global::System.Data.Odbc.OdbcType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("con_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "con_date", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""new"".""public"".""consignment"" SET ""id"" = ?, ""sup_id"" = ?, ""com_id"" = ?, ""price"" = ?, ""con_date"" = ?, ""count"" = ? WHERE ((""id"" = ?) AND (""sup_id"" = ?) AND (""com_id"" = ?) AND ((? = 1 AND ""price"" IS NULL) OR (""price"" = ?)) AND (""con_date"" = ?) AND ((? = 1 AND ""count"" IS NULL) OR (""count"" = ?)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sup_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sup_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("price", global::System.Data.Odbc.OdbcType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("con_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "con_date", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_sup_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sup_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_price", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_price", global::System.Data.Odbc.OdbcType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_con_date", global::System.Data.Odbc.OdbcType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "con_date", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.Odbc.OdbcConnection();
+            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.newConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
+            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT \"id\", \"sup_id\", \"com_id\", \"price\", \"con_date\", \"count\" FROM \"public\".\"cons" +
+                "ignment\"";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSet.consignmentDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSet.consignmentDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet.consignmentDataTable dataTable = new DataSet.consignmentDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet.consignmentDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataSet dataSet) {
+            return this.Adapter.Update(dataSet, "consignment");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(long Original_id, long Original_sup_id, long Original_com_id, double Original_price, System.DateTime Original_con_date, long Original_count) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_sup_id));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_com_id));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_price));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_con_date));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((long)(Original_count));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(long id, long sup_id, long com_id, double price, System.DateTime con_date, long count) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(id));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(sup_id));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((long)(com_id));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((double)(price));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(con_date));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((long)(count));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(long id, long sup_id, long com_id, double price, System.DateTime con_date, long count, long Original_id, long Original_sup_id, long Original_com_id, double Original_price, System.DateTime Original_con_date, long Original_count) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(id));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(sup_id));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(com_id));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(price));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(con_date));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(count));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(Original_sup_id));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((long)(Original_com_id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(Original_price));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_con_date));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(Original_count));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(long sup_id, long com_id, double price, System.DateTime con_date, long count, long Original_id, long Original_sup_id, long Original_com_id, double Original_price, System.DateTime Original_con_date, long Original_count) {
+            return this.Update(Original_id, sup_id, com_id, price, con_date, count, Original_id, Original_sup_id, Original_com_id, Original_price, Original_con_date, Original_count);
         }
     }
     
@@ -3943,38 +4446,38 @@ namespace Warehouse.DataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"TP\".\"public\".\"person\" WHERE ((\"login\" = ?) AND (\"password\" = ?) AND " +
-                "(\"stat\" = ?))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"new\".\"public\".\"person\" WHERE ((\"login\" = ?) AND (\"password\" = ?) AND" +
+                " (\"stat\" = ?))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_login", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_password", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_stat", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "stat", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_login", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_password", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_stat", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "stat", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"TP\".\"public\".\"person\" (\"login\", \"password\", \"stat\") VALUES (?, ?, ?)" +
-                "";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"new\".\"public\".\"person\" (\"login\", \"password\", \"stat\") VALUES (?, ?, ?" +
+                ")";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("stat", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "stat", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("stat", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "stat", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"TP\".\"public\".\"person\" SET \"login\" = ?, \"password\" = ?, \"stat\" = ? WHERE (" +
-                "(\"login\" = ?) AND (\"password\" = ?) AND (\"stat\" = ?))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE \"new\".\"public\".\"person\" SET \"login\" = ?, \"password\" = ?, \"stat\" = ? WHERE " +
+                "((\"login\" = ?) AND (\"password\" = ?) AND (\"stat\" = ?))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("stat", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "stat", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_login", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_password", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_stat", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "stat", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("login", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("password", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("stat", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "stat", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_login", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "login", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_password", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_stat", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "stat", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.TPConnectionString;
+            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.newConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4193,328 +4696,6 @@ namespace Warehouse.DataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sup_orderTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
-        
-        private global::System.Data.Odbc.OdbcConnection _connection;
-        
-        private global::System.Data.Odbc.OdbcTransaction _transaction;
-        
-        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public sup_orderTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.Odbc.OdbcConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.Odbc.OdbcTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sup_order";
-            tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("sup_id", "sup_id");
-            tableMapping.ColumnMappings.Add("com_id", "com_id");
-            tableMapping.ColumnMappings.Add("count", "count");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"TP\".\"public\".\"sup_order\" WHERE ((\"id\" = ?) AND (\"sup_id\" = ?) AND (\"" +
-                "com_id\" = ?) AND ((? = 1 AND \"count\" IS NULL) OR (\"count\" = ?)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_sup_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sup_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"TP\".\"public\".\"sup_order\" (\"id\", \"sup_id\", \"com_id\", \"count\") VALUES " +
-                "(?, ?, ?, ?)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sup_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sup_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"TP\".\"public\".\"sup_order\" SET \"id\" = ?, \"sup_id\" = ?, \"com_id\" = ?, \"count" +
-                "\" = ? WHERE ((\"id\" = ?) AND (\"sup_id\" = ?) AND (\"com_id\" = ?) AND ((? = 1 AND \"c" +
-                "ount\" IS NULL) OR (\"count\" = ?)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("sup_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sup_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_sup_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "sup_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_com_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "com_id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("IsNull_count", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_count", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "count", global::System.Data.DataRowVersion.Original, false, null));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.TPConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
-            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"id\", \"sup_id\", \"com_id\", \"count\" FROM \"public\".\"sup_order\"";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet.sup_orderDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet.sup_orderDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet.sup_orderDataTable dataTable = new DataSet.sup_orderDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet.sup_orderDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "sup_order");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, long Original_sup_id, long Original_com_id, long Original_count) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_sup_id));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_com_id));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((long)(Original_count));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long id, long sup_id, long com_id, long count) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(id));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(sup_id));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((long)(com_id));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((long)(count));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long id, long sup_id, long com_id, long count, long Original_id, long Original_sup_id, long Original_com_id, long Original_count) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(id));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(sup_id));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(com_id));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(count));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_id));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(Original_sup_id));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_com_id));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((long)(Original_count));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long sup_id, long com_id, long count, long Original_id, long Original_sup_id, long Original_com_id, long Original_count) {
-            return this.Update(Original_id, sup_id, com_id, count, Original_id, Original_sup_id, Original_com_id, Original_count);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class supplierTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.Odbc.OdbcDataAdapter _adapter;
@@ -4634,42 +4815,42 @@ namespace Warehouse.DataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"TP\".\"public\".\"supplier\" WHERE ((\"id\" = ?) AND (\"name\" = ?) AND (\"pho" +
-                "ne\" = ?) AND (\"address\" = ?))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"new\".\"public\".\"supplier\" WHERE ((\"id\" = ?) AND (\"name\" = ?) AND (\"ph" +
+                "one\" = ?) AND (\"address\" = ?))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_phone", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_address", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_phone", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_address", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"TP\".\"public\".\"supplier\" (\"id\", \"name\", \"phone\", \"address\") VALUES (?" +
-                ", ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"new\".\"public\".\"supplier\" (\"id\", \"name\", \"phone\", \"address\") VALUES (" +
+                "?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("phone", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("address", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("phone", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("address", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"TP\".\"public\".\"supplier\" SET \"id\" = ?, \"name\" = ?, \"phone\" = ?, \"address\" " +
-                "= ? WHERE ((\"id\" = ?) AND (\"name\" = ?) AND (\"phone\" = ?) AND (\"address\" = ?))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE \"new\".\"public\".\"supplier\" SET \"id\" = ?, \"name\" = ?, \"phone\" = ?, \"address\"" +
+                " = ? WHERE ((\"id\" = ?) AND (\"name\" = ?) AND (\"phone\" = ?) AND (\"address\" = ?))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("phone", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("address", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("phone", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("address", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_id", global::System.Data.Odbc.OdbcType.BigInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_phone", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_address", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_name", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_phone", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phone", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_address", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.TPConnectionString;
+            this._connection.ConnectionString = global::Warehouse.Properties.Settings.Default.newConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4901,9 +5082,9 @@ namespace Warehouse.DataSetTableAdapters {
         
         private commodityTableAdapter _commodityTableAdapter;
         
-        private personTableAdapter _personTableAdapter;
+        private consignmentTableAdapter _consignmentTableAdapter;
         
-        private sup_orderTableAdapter _sup_orderTableAdapter;
+        private personTableAdapter _personTableAdapter;
         
         private supplierTableAdapter _supplierTableAdapter;
         
@@ -4969,12 +5150,12 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public personTableAdapter personTableAdapter {
+        public consignmentTableAdapter consignmentTableAdapter {
             get {
-                return this._personTableAdapter;
+                return this._consignmentTableAdapter;
             }
             set {
-                this._personTableAdapter = value;
+                this._consignmentTableAdapter = value;
             }
         }
         
@@ -4983,12 +5164,12 @@ namespace Warehouse.DataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public sup_orderTableAdapter sup_orderTableAdapter {
+        public personTableAdapter personTableAdapter {
             get {
-                return this._sup_orderTableAdapter;
+                return this._personTableAdapter;
             }
             set {
-                this._sup_orderTableAdapter = value;
+                this._personTableAdapter = value;
             }
         }
         
@@ -5037,13 +5218,13 @@ namespace Warehouse.DataSetTableAdapters {
                             && (this._commodityTableAdapter.Connection != null))) {
                     return this._commodityTableAdapter.Connection;
                 }
+                if (((this._consignmentTableAdapter != null) 
+                            && (this._consignmentTableAdapter.Connection != null))) {
+                    return this._consignmentTableAdapter.Connection;
+                }
                 if (((this._personTableAdapter != null) 
                             && (this._personTableAdapter.Connection != null))) {
                     return this._personTableAdapter.Connection;
-                }
-                if (((this._sup_orderTableAdapter != null) 
-                            && (this._sup_orderTableAdapter.Connection != null))) {
-                    return this._sup_orderTableAdapter.Connection;
                 }
                 if (((this._supplierTableAdapter != null) 
                             && (this._supplierTableAdapter.Connection != null))) {
@@ -5071,10 +5252,10 @@ namespace Warehouse.DataSetTableAdapters {
                 if ((this._commodityTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._personTableAdapter != null)) {
+                if ((this._consignmentTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._sup_orderTableAdapter != null)) {
+                if ((this._personTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._supplierTableAdapter != null)) {
@@ -5118,21 +5299,21 @@ namespace Warehouse.DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._consignmentTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.consignment.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._consignmentTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._personTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.person.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._personTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._sup_orderTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.sup_order.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._sup_orderTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5179,19 +5360,19 @@ namespace Warehouse.DataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._consignmentTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.consignment.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._consignmentTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._personTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.person.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._personTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._sup_orderTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.sup_order.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._sup_orderTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5221,19 +5402,19 @@ namespace Warehouse.DataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._sup_orderTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.sup_order.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._sup_orderTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._personTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.person.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._personTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._consignmentTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.consignment.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._consignmentTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5315,13 +5496,13 @@ namespace Warehouse.DataSetTableAdapters {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._personTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._personTableAdapter.Connection) == false))) {
+            if (((this._consignmentTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._consignmentTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._sup_orderTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._sup_orderTableAdapter.Connection) == false))) {
+            if (((this._personTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._personTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -5389,6 +5570,15 @@ namespace Warehouse.DataSetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._commodityTableAdapter.Adapter);
                     }
                 }
+                if ((this._consignmentTableAdapter != null)) {
+                    revertConnections.Add(this._consignmentTableAdapter, this._consignmentTableAdapter.Connection);
+                    this._consignmentTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
+                    this._consignmentTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
+                    if (this._consignmentTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._consignmentTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._consignmentTableAdapter.Adapter);
+                    }
+                }
                 if ((this._personTableAdapter != null)) {
                     revertConnections.Add(this._personTableAdapter, this._personTableAdapter.Connection);
                     this._personTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
@@ -5396,15 +5586,6 @@ namespace Warehouse.DataSetTableAdapters {
                     if (this._personTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._personTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._personTableAdapter.Adapter);
-                    }
-                }
-                if ((this._sup_orderTableAdapter != null)) {
-                    revertConnections.Add(this._sup_orderTableAdapter, this._sup_orderTableAdapter.Connection);
-                    this._sup_orderTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(workConnection));
-                    this._sup_orderTableAdapter.Transaction = ((global::System.Data.Odbc.OdbcTransaction)(workTransaction));
-                    if (this._sup_orderTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._sup_orderTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._sup_orderTableAdapter.Adapter);
                     }
                 }
                 if ((this._supplierTableAdapter != null)) {
@@ -5486,13 +5667,13 @@ namespace Warehouse.DataSetTableAdapters {
                     this._commodityTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._commodityTableAdapter]));
                     this._commodityTableAdapter.Transaction = null;
                 }
+                if ((this._consignmentTableAdapter != null)) {
+                    this._consignmentTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._consignmentTableAdapter]));
+                    this._consignmentTableAdapter.Transaction = null;
+                }
                 if ((this._personTableAdapter != null)) {
                     this._personTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._personTableAdapter]));
                     this._personTableAdapter.Transaction = null;
-                }
-                if ((this._sup_orderTableAdapter != null)) {
-                    this._sup_orderTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._sup_orderTableAdapter]));
-                    this._sup_orderTableAdapter.Transaction = null;
                 }
                 if ((this._supplierTableAdapter != null)) {
                     this._supplierTableAdapter.Connection = ((global::System.Data.Odbc.OdbcConnection)(revertConnections[this._supplierTableAdapter]));

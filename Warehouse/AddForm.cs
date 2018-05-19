@@ -19,7 +19,6 @@ namespace Warehouse
             }
             var row = dataSet.commodity.NewcommodityRow();
             row.name = NameBox.Text;
-            row.count = 0;
             dataSet.commodity.Rows.Add(row);
             commodityTA.Update(dataSet.commodity);
             Close();

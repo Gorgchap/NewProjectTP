@@ -28,24 +28,29 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataSet = new Warehouse.DataSet();
-            this.sup_orderTA = new Warehouse.DataSetTableAdapters.sup_orderTableAdapter();
+            this.consignmentTA = new Warehouse.DataSetTableAdapters.consignmentTableAdapter();
             this.SupLabel = new System.Windows.Forms.Label();
             this.Supplier = new System.Windows.Forms.ComboBox();
-            this.suporderBS = new System.Windows.Forms.BindingSource(this.components);
+            this.consignmentBS = new System.Windows.Forms.BindingSource(this.components);
             this.supplierBS = new System.Windows.Forms.BindingSource(this.components);
             this.commodityBS = new System.Windows.Forms.BindingSource(this.components);
-            this.commodityTA = new Warehouse.DataSetTableAdapters.commodityTableAdapter();
-            this.supplierTA = new Warehouse.DataSetTableAdapters.supplierTableAdapter();
             this.ComLabel = new System.Windows.Forms.Label();
             this.Commodity = new System.Windows.Forms.ComboBox();
             this.ComCount = new System.Windows.Forms.NumericUpDown();
             this.CountLabel = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
+            this.PriceLabel = new System.Windows.Forms.Label();
+            this.Price = new System.Windows.Forms.NumericUpDown();
+            this.DateLabel = new System.Windows.Forms.Label();
+            this.Date = new System.Windows.Forms.DateTimePicker();
+            this.supplierTA = new Warehouse.DataSetTableAdapters.supplierTableAdapter();
+            this.commodityTA = new Warehouse.DataSetTableAdapters.commodityTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.suporderBS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consignmentBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commodityBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price)).BeginInit();
             this.SuspendLayout();
             // 
             // dataSet
@@ -53,9 +58,9 @@
             this.dataSet.DataSetName = "DataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // sup_orderTA
+            // consignmentTA
             // 
-            this.sup_orderTA.ClearBeforeFill = true;
+            this.consignmentTA.ClearBeforeFill = true;
             // 
             // SupLabel
             // 
@@ -68,20 +73,20 @@
             // 
             // Supplier
             // 
-            this.Supplier.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.suporderBS, "sup_id", true));
+            this.Supplier.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.consignmentBS, "sup_id", true));
             this.Supplier.DataSource = this.supplierBS;
             this.Supplier.DisplayMember = "name";
             this.Supplier.FormattingEnabled = true;
             this.Supplier.Location = new System.Drawing.Point(84, 10);
             this.Supplier.Name = "Supplier";
-            this.Supplier.Size = new System.Drawing.Size(172, 21);
+            this.Supplier.Size = new System.Drawing.Size(214, 21);
             this.Supplier.TabIndex = 1;
             this.Supplier.ValueMember = "id";
             // 
-            // suporderBS
+            // consignmentBS
             // 
-            this.suporderBS.DataMember = "sup_order";
-            this.suporderBS.DataSource = this.dataSet;
+            this.consignmentBS.DataMember = "consignment";
+            this.consignmentBS.DataSource = this.dataSet;
             // 
             // supplierBS
             // 
@@ -92,14 +97,6 @@
             // 
             this.commodityBS.DataMember = "commodity";
             this.commodityBS.DataSource = this.dataSet;
-            // 
-            // commodityTA
-            // 
-            this.commodityTA.ClearBeforeFill = true;
-            // 
-            // supplierTA
-            // 
-            this.supplierTA.ClearBeforeFill = true;
             // 
             // ComLabel
             // 
@@ -112,13 +109,13 @@
             // 
             // Commodity
             // 
-            this.Commodity.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.suporderBS, "com_id", true));
+            this.Commodity.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.consignmentBS, "com_id", true));
             this.Commodity.DataSource = this.commodityBS;
             this.Commodity.DisplayMember = "name";
             this.Commodity.FormattingEnabled = true;
             this.Commodity.Location = new System.Drawing.Point(84, 37);
             this.Commodity.Name = "Commodity";
-            this.Commodity.Size = new System.Drawing.Size(172, 21);
+            this.Commodity.Size = new System.Drawing.Size(214, 21);
             this.Commodity.TabIndex = 3;
             this.Commodity.ValueMember = "id";
             // 
@@ -136,7 +133,7 @@
             0,
             0});
             this.ComCount.Name = "ComCount";
-            this.ComCount.Size = new System.Drawing.Size(57, 20);
+            this.ComCount.Size = new System.Drawing.Size(214, 20);
             this.ComCount.TabIndex = 4;
             this.ComCount.Value = new decimal(new int[] {
             1,
@@ -155,7 +152,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(181, 64);
+            this.AddButton.Location = new System.Drawing.Point(223, 119);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 20);
             this.AddButton.TabIndex = 6;
@@ -163,11 +160,76 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
+            // PriceLabel
+            // 
+            this.PriceLabel.AutoSize = true;
+            this.PriceLabel.Location = new System.Drawing.Point(9, 94);
+            this.PriceLabel.Name = "PriceLabel";
+            this.PriceLabel.Size = new System.Drawing.Size(33, 13);
+            this.PriceLabel.TabIndex = 7;
+            this.PriceLabel.Text = "Цена";
+            // 
+            // Price
+            // 
+            this.Price.DecimalPlaces = 2;
+            this.Price.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            196608});
+            this.Price.Location = new System.Drawing.Point(84, 90);
+            this.Price.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.Price.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            196608});
+            this.Price.Name = "Price";
+            this.Price.Size = new System.Drawing.Size(214, 20);
+            this.Price.TabIndex = 8;
+            this.Price.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            196608});
+            // 
+            // DateLabel
+            // 
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.Location = new System.Drawing.Point(9, 121);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(83, 13);
+            this.DateLabel.TabIndex = 9;
+            this.DateLabel.Text = "Дата поставки";
+            // 
+            // Date
+            // 
+            this.Date.Location = new System.Drawing.Point(98, 119);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(119, 20);
+            this.Date.TabIndex = 10;
+            // 
+            // supplierTA
+            // 
+            this.supplierTA.ClearBeforeFill = true;
+            // 
+            // commodityTA
+            // 
+            this.commodityTA.ClearBeforeFill = true;
+            // 
             // SupOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 91);
+            this.ClientSize = new System.Drawing.Size(310, 145);
+            this.Controls.Add(this.Date);
+            this.Controls.Add(this.DateLabel);
+            this.Controls.Add(this.Price);
+            this.Controls.Add(this.PriceLabel);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.CountLabel);
             this.Controls.Add(this.ComCount);
@@ -175,14 +237,16 @@
             this.Controls.Add(this.ComLabel);
             this.Controls.Add(this.Supplier);
             this.Controls.Add(this.SupLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SupOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Заказ поставщику";
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.suporderBS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consignmentBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commodityBS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Price)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,18 +255,22 @@
         #endregion
 
         private DataSet dataSet;
-        private DataSetTableAdapters.sup_orderTableAdapter sup_orderTA;
+        private DataSetTableAdapters.consignmentTableAdapter consignmentTA;
         private System.Windows.Forms.Label SupLabel;
         private System.Windows.Forms.ComboBox Supplier;
         private System.Windows.Forms.BindingSource commodityBS;
-        private DataSetTableAdapters.commodityTableAdapter commodityTA;
-        private System.Windows.Forms.BindingSource suporderBS;
         private System.Windows.Forms.BindingSource supplierBS;
-        private DataSetTableAdapters.supplierTableAdapter supplierTA;
         private System.Windows.Forms.Label ComLabel;
         private System.Windows.Forms.ComboBox Commodity;
         private System.Windows.Forms.NumericUpDown ComCount;
         private System.Windows.Forms.Label CountLabel;
         private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Label PriceLabel;
+        private System.Windows.Forms.NumericUpDown Price;
+        private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.DateTimePicker Date;
+        private DataSetTableAdapters.supplierTableAdapter supplierTA;
+        private System.Windows.Forms.BindingSource consignmentBS;
+        private DataSetTableAdapters.commodityTableAdapter commodityTA;
     }
 }

@@ -8,9 +8,11 @@ namespace Warehouse
         public SellerForm()
         {
             InitializeComponent();
-            client_orderTA.Fill(dataSet.client_order);
             clientTA.Fill(dataSet.client);
+            client_orderTA.Fill(dataSet.client_order);
             commodityTA.Fill(dataSet.commodity);
+            consignmentTA.Fill(dataSet.consignment);
+            supplierTA.Fill(dataSet.supplier);
         }
 
         private void ClientOrderButton_Click(object sender, EventArgs e)
@@ -22,7 +24,8 @@ namespace Warehouse
 
         private void SaveData(object sender, FormClosedEventArgs e)
         {
-            commodityTA.Fill(dataSet.commodity);
+            dataSet.consignment.AcceptChanges();
+            consignmentTA.Fill(dataSet.consignment);
             client_orderTA.Fill(dataSet.client_order);
         }
 

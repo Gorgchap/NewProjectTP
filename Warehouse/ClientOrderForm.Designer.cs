@@ -43,6 +43,9 @@
             this.commodityTA = new Warehouse.DataSetTableAdapters.commodityTableAdapter();
             this.ComCount = new System.Windows.Forms.NumericUpDown();
             this.AddButton = new System.Windows.Forms.Button();
+            this.DateLabel = new System.Windows.Forms.Label();
+            this.Date = new System.Windows.Forms.DateTimePicker();
+            this.consignmentTA = new Warehouse.DataSetTableAdapters.consignmentTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.clientorderBS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBS)).BeginInit();
@@ -59,14 +62,14 @@
             this.ClientLabel.TabIndex = 1;
             this.ClientLabel.Text = "Клиент";
             // 
-            // Supplier
+            // Client
             // 
             this.Client.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.clientorderBS, "client_id", true));
             this.Client.DataSource = this.clientBS;
             this.Client.DisplayMember = "name";
             this.Client.FormattingEnabled = true;
             this.Client.Location = new System.Drawing.Point(84, 10);
-            this.Client.Name = "Supplier";
+            this.Client.Name = "Client";
             this.Client.Size = new System.Drawing.Size(172, 21);
             this.Client.TabIndex = 2;
             this.Client.ValueMember = "id";
@@ -123,7 +126,7 @@
             // CountLabel
             // 
             this.CountLabel.AutoSize = true;
-            this.CountLabel.Location = new System.Drawing.Point(9, 66);
+            this.CountLabel.Location = new System.Drawing.Point(9, 93);
             this.CountLabel.Name = "CountLabel";
             this.CountLabel.Size = new System.Drawing.Size(66, 13);
             this.CountLabel.TabIndex = 6;
@@ -135,7 +138,7 @@
             // 
             // ComCount
             // 
-            this.ComCount.Location = new System.Drawing.Point(84, 64);
+            this.ComCount.Location = new System.Drawing.Point(98, 91);
             this.ComCount.Maximum = new decimal(new int[] {
             500,
             0,
@@ -157,7 +160,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(181, 64);
+            this.AddButton.Location = new System.Drawing.Point(181, 91);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 20);
             this.AddButton.TabIndex = 8;
@@ -165,11 +168,33 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
+            // DateLabel
+            // 
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.Location = new System.Drawing.Point(9, 67);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(83, 13);
+            this.DateLabel.TabIndex = 10;
+            this.DateLabel.Text = "Дата поставки";
+            // 
+            // Date
+            // 
+            this.Date.Location = new System.Drawing.Point(98, 64);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(158, 20);
+            this.Date.TabIndex = 11;
+            // 
+            // consignmentTA
+            // 
+            this.consignmentTA.ClearBeforeFill = true;
+            // 
             // ClientOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 91);
+            this.ClientSize = new System.Drawing.Size(264, 117);
+            this.Controls.Add(this.Date);
+            this.Controls.Add(this.DateLabel);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.ComCount);
             this.Controls.Add(this.CountLabel);
@@ -177,6 +202,7 @@
             this.Controls.Add(this.ComLabel);
             this.Controls.Add(this.Client);
             this.Controls.Add(this.ClientLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ClientOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Заказ клиента";
@@ -206,5 +232,8 @@
         private DataSetTableAdapters.commodityTableAdapter commodityTA;
         private System.Windows.Forms.NumericUpDown ComCount;
         private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.DateTimePicker Date;
+        private DataSetTableAdapters.consignmentTableAdapter consignmentTA;
     }
 }

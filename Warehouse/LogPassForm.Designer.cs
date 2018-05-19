@@ -98,6 +98,7 @@
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.LoginLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "LogPassForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Вход";

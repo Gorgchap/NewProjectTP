@@ -77,6 +77,7 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.NameBox);
             this.Controls.Add(this.AddLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавить новый товар";

@@ -32,5 +32,15 @@ namespace Warehouse.Properties {
                 return ((string)(this["TPConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Driver={PostgreSQL ANSI};server=localhost;port=5432;database=new;uid=postgres")]
+        public string newConnectionString {
+            get {
+                return ((string)(this["newConnectionString"]));
+            }
+        }
     }
 }

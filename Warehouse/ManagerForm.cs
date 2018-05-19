@@ -10,7 +10,7 @@ namespace Warehouse
             InitializeComponent();
             commodityTA.Fill(dataSet.commodity);
             supplierTA.Fill(dataSet.supplier);
-            sup_orderTA.Fill(dataSet.sup_order);
+            consignmentTA.Fill(dataSet.consignment);
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -23,7 +23,7 @@ namespace Warehouse
         private void SaveData(object sender, FormClosedEventArgs e)
         {
             commodityTA.Fill(dataSet.commodity);
-            sup_orderTA.Fill(dataSet.sup_order);
+            consignmentTA.Fill(dataSet.consignment);
         }
 
         private void RejectButton_Click(object sender, EventArgs e) { dataSet.supplier.RejectChanges(); }
